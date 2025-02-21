@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mount Google Drive in CentOS</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            padding: 20px;
+            background-color: #f4f4f4;
+        }
+        .container {
+            max-width: 800px;
+            background: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+        }
+        h2 {
+            padding: 10px;
+            border-radius: 5px;
+        }
+        .step1 { background-color: #ffcccb; }
+        .step2 { background-color: #d1c4e9; }
+        .step3 { background-color: #c8e6c9; }
+        .step4 { background-color: #ffecb3; }
+        .reference { background-color: #b3e5fc; }
+        pre {
+            background: #333;
+            color: #fff;
+            padding: 10px;
+            border-radius: 5px;
+            overflow-x: auto;
+        }
+        .pagination {
+            margin-top: 20px;
+            text-align: center;
+        }
+        .pagination a {
+            text-decoration: none;
+            padding: 10px 15px;
+            border: 1px solid #007bff;
+            border-radius: 5px;
+            color: #007bff;
+            margin: 5px;
+            display: inline-block;
+        }
+        .pagination a:hover {
+            background: #007bff;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2 class="step1">Step 1: Download and Unzip Rclone</h2>
+        <pre>
+curl -O https://downloads.rclone.org/rclone-current-linux-amd64.zip
+unzip rclone-current-linux-amd64.zip
+cd rclone-*-linux-amd64
+        </pre>
+
+        <h2 class="step2">Step 2: Copy Binary File</h2>
+        <pre>
+sudo cp rclone /usr/bin/
+sudo chown root:root /usr/bin/rclone
+sudo chmod 755 /usr/bin/rclone
+        </pre>
+
+        <h2 class="step3">Step 3: Install Manpage</h2>
+        <pre>
+sudo mkdir -p /usr/local/share/man/man1
+sudo cp rclone.1 /usr/local/share/man/man1/
+sudo mandb
+        </pre>
+
+        <h2 class="step4">Step 4: Configure Rclone</h2>
+        <pre>
+rclone config
+n) New remote
+name> remote
+12 (Google Drive)
+1 (Full access)
+n (Edit advanced config)
+y (Use auto config?)
+n (Team drive)
+y (Confirm configuration)
+        </pre>
+
+        <h2 class="reference">Reference Command</h2>
+        <pre>
+rclone ls driveku:
+        </pre>
+
+        <div class="pagination">
+            <a href="#">&#9665; Previous</a>
+            <a href="#">Next &#9655;</a>
+        </div>
+    </div>
+</body>
+</html>
+

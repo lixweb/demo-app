@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mount Google Drive in CentOS</title>
+    <title>Mayur Gami - Resume</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -16,89 +16,131 @@
             background: #fff;
             padding: 20px;
             border-radius: 10px;
-            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
-        }
-        h2 {
-            padding: 10px;
-            border-radius: 5px;
-        }
-        .step1 { background-color: #ffcccb; }
-        .step2 { background-color: #d1c4e9; }
-        .step3 { background-color: #c8e6c9; }
-        .step4 { background-color: #ffecb3; }
-        .reference { background-color: #b3e5fc; }
-        pre {
-            background: #333;
-            color: #fff;
-            padding: 10px;
-            border-radius: 5px;
-            overflow-x: auto;
-        }
-        .pagination {
-            margin-top: 20px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
             text-align: center;
         }
-        .pagination a {
+        .company {
+            font-size: 18px;
+            font-weight: bold;
+            padding: 10px;
+            border-radius: 5px;
+            color: white;
+        }
+        .innovage { background-color: #ff5733; }
+        .osplabs { background-color: #337ab7; }
+        .alittleworld { background-color: #28a745; }
+        .ntech { background-color: #ffc107; }
+        .navigation {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 20px;
+        }
+        .btn {
             text-decoration: none;
             padding: 10px 15px;
-            border: 1px solid #007bff;
-            border-radius: 5px;
-            color: #007bff;
-            margin: 5px;
-            display: inline-block;
-        }
-        .pagination a:hover {
-            background: #007bff;
+            background-color: #007bff;
             color: white;
+            border-radius: 5px;
+            cursor: pointer;
+            border: none;
+        }
+        .btn:hover {
+            background-color: #0056b3;
+        }
+        .bold {
+            font-weight: bold;
         }
     </style>
 </head>
 <body>
     <div class="container">
-        <h2 class="step1">Step 1: Download and Unzip Rclone</h2>
-        <pre>
-curl -O https://downloads.rclone.org/rclone-current-linux-amd64.zip
-unzip rclone-current-linux-amd64.zip
-cd rclone-*-linux-amd64
-        </pre>
-
-        <h2 class="step2">Step 2: Copy Binary File</h2>
-        <pre>
-sudo cp rclone /usr/bin/
-sudo chown root:root /usr/bin/rclone
-sudo chmod 755 /usr/bin/rclone
-        </pre>
-
-        <h2 class="step3">Step 3: Install Manpage</h2>
-        <pre>
-sudo mkdir -p /usr/local/share/man/man1
-sudo cp rclone.1 /usr/local/share/man/man1/
-sudo mandb
-        </pre>
-
-        <h2 class="step4">Step 4: Configure Rclone</h2>
-        <pre>
-rclone config
-n) New remote
-name> remote
-12 (Google Drive)
-1 (Full access)
-n (Edit advanced config)
-y (Use auto config?)
-n (Team drive)
-y (Confirm configuration)
-        </pre>
-
-        <h2 class="reference">Reference Command</h2>
-        <pre>
-rclone ls driveku:
-        </pre>
-
-        <div class="pagination">
-            <a href="#">&#9665; Previous</a>
-            <a href="#">Next &#9655;</a>
+        <h1>Mayur Gami</h1>
+        <p><strong>Contact Email:</strong> gamimayur999@gmail.com</p>
+        <p><strong>Contact Number:</strong> +91-9987509864</p>
+        <hr>
+        <div id="content"></div>
+        <div class="navigation">
+            <button id="prev" class="btn">Previous</button>
+            <button id="next" class="btn">Next</button>
         </div>
     </div>
+
+    <script>
+        const pages = [
+            ` <h2>Objective</h2>
+              <p>To secure a position in a corporate sector where I can utilize my technical skills and experience to provide Systems Administration, Maintenance, and Support Services. I aim to continuously improve my skills and contribute to the success of the organization.</p>`,
+            ` <h2 class="company innovage">System Administrator - Innovage Fintech Pvt Ltd</h2>
+              <p><span class="bold">Roles and Responsibilities:</span></p>
+              <ul>
+                  <li>Manage Apache, Nginx, IIS, AWS & Azure cloud platforms.</li>
+                  <li>Linux System Administration (RHEL, CentOS, Ubuntu, etc.).</li>
+                  <li>Manage SSL Certificates, including wildcard domains.</li>
+                  <li>Configure and maintain Nagios, Wireshark & Fortigate firewall.</li>
+                  <li>Backup and restore using Cloudberry & Syncovery.</li>
+                  <li>Manage G-Suite users.</li>
+                  <li>Handle cPanel & WHM server administration.</li>
+                  <li>Install and manage Windows Server 2008 R2, 2012, and 2019 with Active Directory.</li>
+                  <li>Configure and maintain LVM on Linux servers for data storage and migration.</li>
+                  <li>Reconfigure IP addresses when servers move between networks.</li>
+                  <li>Manage resource sharing via SAMBA and NFS Server/Client.</li>
+                  <li>Perform backup & restore for servers and users.</li>
+                  <li>Vendor and inventory management.</li>
+              </ul>`,
+            ` <h2 class="company osplabs">System Administrator - OSPLabs Pvt Ltd</h2>
+              <p><span class="bold">Roles and Responsibilities:</span></p>
+              <ul>
+                  <li>Manage cPanel & WHM server.</li>
+                  <li>Hands-on experience with AWS & Rackspace servers.</li>
+                  <li>Configure and maintain Cyberoam firewall.</li>
+                  <li>Install and configure LAMP with Nginx.</li>
+                  <li>Configure and troubleshoot Outlook & Thunderbird.</li>
+                  <li>Manage SAMBA and NFS Server/Client for resource sharing.</li>
+                  <li>Configure YUM & APT repositories and manage OS-level packages.</li>
+                  <li>Use OS-ticketing tool for troubleshooting and issue resolution.</li>
+                  <li>Vonage business system (SIP Account) configuration.</li>
+              </ul>`,
+            ` <h2 class="company alittleworld">System Administrator - A Little World Pvt Ltd</h2>
+              <p><span class="bold">Roles and Responsibilities:</span></p>
+              <ul>
+                  <li>Monitor and provide administrative support for production servers 24x7.</li>
+                  <li>Install, configure, and maintain Linux servers.</li>
+                  <li>Analyze system logs and troubleshoot OS-related issues.</li>
+                  <li>Manage user accounts, groups, and permissions.</li>
+                  <li>Configure and administer Nagios network monitoring.</li>
+                  <li>Manage disk space using LVM.</li>
+                  <li>Schedule automatic backups using crontab.</li>
+              </ul>`,
+            ` <h2 class="company ntech">System Support & Network Engineer - N-Tech IT Solution</h2>
+              <p><span class="bold">Roles and Responsibilities:</span></p>
+              <ul>
+                  <li>LAN setup and user/group management.</li>
+                  <li>Install and troubleshoot Windows OS.</li>
+                  <li>Configure Outlook & Thunderbird.</li>
+                  <li>Handle IT support and hardware troubleshooting.</li>
+                  <li>Install SAP applications and MS Office.</li>
+                  <li>Configure routers and network devices.</li>
+              </ul>`,
+            ` <h2 class="bold">Finish</h2>
+              <p class="bold">Thank you for reviewing my resume!</p>`
+        ];
+
+        let currentPage = 0;
+        document.getElementById("content").innerHTML = pages[currentPage];
+
+        document.getElementById("next").addEventListener("click", function() {
+            if (currentPage < pages.length - 1) {
+                currentPage++;
+                document.getElementById("content").innerHTML = pages[currentPage];
+            }
+        });
+
+        document.getElementById("prev").addEventListener("click", function() {
+            if (currentPage > 0) {
+                currentPage--;
+                document.getElementById("content").innerHTML = pages[currentPage];
+            }
+        });
+    </script>
 </body>
 </html>
 
